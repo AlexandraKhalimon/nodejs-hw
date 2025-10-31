@@ -10,6 +10,7 @@ const noteSchema = new Schema(
     },
     content: {
       type: String,
+      default: '',
       trim: true,
     },
     tag: {
@@ -17,6 +18,11 @@ const noteSchema = new Schema(
       enum: TAGS,
       default: 'Todo',
     },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    }
   },
   {
     timestamps: true,
